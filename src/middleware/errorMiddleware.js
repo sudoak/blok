@@ -15,6 +15,7 @@ const errorMiddleware = (err, _req, res, _next) => {
   if (err instanceof ValidationError) {
     code = 1;
   }
+  console.log(err.details.body);
   res.status(httpCode);
   res.json({
     code,
