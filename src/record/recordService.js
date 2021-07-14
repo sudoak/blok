@@ -1,11 +1,20 @@
-/* eslint-disable no-return-await */
 const Record = require('./recordModel');
 const { fetchRecords } = require('./recordDAO')(Record);
+const { isoDateString } = require('../util/dateHelper');
+const successfulResponse = require('../util/successfulResponse');
 
 const recordService = () => {
   const getRecordsService = async (payload) => {
-    const data = await fetchRecords(payload);
-    return data;
+    const processedStartDate = isoDateString(payload.startDate);
+    const processedEndDate = isoDateString(payload.endDate, true);
+    const processedPayload = {
+      ...payload,
+      startDate: processedStartDate,
+      endDate: processedEndDate,
+    };
+
+    const data = await fetchRecords(processedPayload);
+    return successfulResponse(data);
   };
   return { getRecordsService };
 };

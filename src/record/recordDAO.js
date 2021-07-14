@@ -1,12 +1,6 @@
 /* eslint-disable object-curly-newline */
-const { isoDateString } = require('../util/dateHelper');
-
 const recordDAO = (Record) => {
   const fetchRecords = async ({ startDate, endDate, minCount, maxCount }) => {
-    const sD = isoDateString(startDate);
-    const eD = isoDateString(endDate, true);
-    console.log(sD, eD);
-
     const _ = await Record.aggregate([
       {
         $project: {
@@ -21,7 +15,7 @@ const recordDAO = (Record) => {
       {
         $match: {
           totalCount: { $gte: minCount, $lte: maxCount },
-          createdAt: { $gt: new Date(sD), $lt: new Date(eD) },
+          createdAt: { $gt: startDate, $lt: endDate },
         },
       },
     ]);

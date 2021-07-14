@@ -1,7 +1,7 @@
 const isoDateString = (date, eod = false) => {
-  const isoTimestamp = new Date(date);
-  if (eod) isoTimestamp.setHours(4, 59, 59, 999);
-  return isoTimestamp.toISOString();
+  const timestamp = new Date(date);
+  if (eod) timestamp.setHours(4, 59, 59, 999);
+  return new Date(timestamp.toISOString());
 };
 
 module.exports = {
