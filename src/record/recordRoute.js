@@ -5,6 +5,6 @@ const { getRecords } = require('./recordController')(getRecordsService);
 
 const router = express.Router();
 
-router.get('/records', getRecords);
+router.post('/records', getRecords);
 
 module.exports = router;
