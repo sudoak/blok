@@ -1,5 +1,4 @@
-const Record = require('./recordModel');
-const { fetchRecords } = require('./recordDAO')(Record);
+const { fetchRecords } = require('./recordDAO')();
 const { isoDateString } = require('../util/dateHelper');
 const successfulResponse = require('../util/successfulResponse');
 

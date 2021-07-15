@@ -1,5 +1,7 @@
 /* eslint-disable object-curly-newline */
-const recordDAO = (Record) => {
+const Record = require('./recordModel');
+
+const recordDAO = () => {
   const fetchRecords = async ({ startDate, endDate, minCount, maxCount }) => {
     const _ = await Record.aggregate([
       {
