@@ -1,7 +1,8 @@
 const recordController = (getRecordsService) => {
   const getRecords = async (req, res) => {
+    console.log(req);
     const records = await getRecordsService(req.body);
-    res.json(records);
+    res.status(201).json(records);
   };
   return {
     getRecords,
