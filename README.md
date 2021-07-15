@@ -2,6 +2,8 @@
 
 POST API to fetch records 
 
+
+[API Documentation](https://greve-fromage-47823.herokuapp.com/api-docs/) 
 ## Requirements
     - Node.js +12
     - Mongodb URL
